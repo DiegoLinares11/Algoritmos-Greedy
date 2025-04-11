@@ -34,11 +34,28 @@ Asignamos un **peso** a cada estudiante (su promedio). El objetivo es **maximiza
 ### Algoritmo Greedy
 
 1. Ordenar a los estudiantes en orden descendente por su promedio.
-2. Inicializar el conjunto solución S ← ∅.
+2. Inicializar el conjunto solución S ← ∅. Seleccionar a cada estudiante si su carrera aún no ha sido seleccionada.
 3. Iterar sobre la lista ordenada:
    - Si el estudiante no pertenece a una carrera ya representada en S, agregarlo a S.
 
 Este algoritmo **greedy** es óptimo porque trabaja sobre un matroide ponderado, lo que garantiza que seleccionar los elementos de mayor peso en orden válido produce la solución óptima.
+
+Ejemplo de implementacion en python:
+```bash
+def seleccion_greedy(estudiantes):
+    # estudiantes: lista de tuplas (nombre, carrera, promedio)
+    estudiantes_ordenados = sorted(estudiantes, key=lambda x: x[2], reverse=True)
+    equipo = []
+    carreras_usadas = set()
+
+    for nombre, carrera, promedio in estudiantes_ordenados:
+        if carrera not in carreras_usadas:
+            equipo.append((nombre, carrera, promedio))
+            carreras_usadas.add(carrera)
+
+    return equipo
+```
+Complejidad: O(nlog⁡n)O(nlogn) por la ordenación inicial.
 
 ---
 
