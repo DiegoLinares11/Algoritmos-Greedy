@@ -41,7 +41,7 @@ Asignamos un **peso** a cada estudiante (su promedio). El objetivo es **maximiza
 Este algoritmo **greedy** es óptimo porque trabaja sobre un matroide ponderado, lo que garantiza que seleccionar los elementos de mayor peso en orden válido produce la solución óptima.
 
 Ejemplo de implementacion en python:
-```bash
+```python
 def seleccion_greedy(estudiantes):
     # estudiantes: lista de tuplas (nombre, carrera, promedio)
     estudiantes_ordenados = sorted(estudiantes, key=lambda x: x[2], reverse=True)
@@ -55,7 +55,7 @@ def seleccion_greedy(estudiantes):
 
     return equipo
 ```
-Complejidad: O(nlog⁡n)O(nlogn) por la ordenación inicial.
+Complejidad: O(nlogn) por la ordenación inicial.
 
 ---
 
